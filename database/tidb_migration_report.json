@@ -1,0 +1,48 @@
+{
+    "verified_at": "2026-11-19T13:14:26+05:30",
+    "base_tables": 4,
+    "reference": {
+        "erp_class": {
+            "count": 48,
+            "sha256": "9ac81a0ce0fd8e034c4a1f4f8fb3359db28993443a51b3c6032bce1f48bde1f4"
+        },
+        "erp_faculty": {
+            "count": 75,
+            "sha256": "c9cd2e4647934c181c82f3c05dd8f1e736c2b91fd02f1ec5110d6ffd21cf5c7b"
+        },
+        "erp_student": {
+            "count": 1247,
+            "sha256": "53d23f6f2b953010f18846f86e8712faa62795dd288ceef0ab8b6926ff36bdfd"
+        }
+    },
+    "application": {
+        "students": {
+            "count": 299,
+            "sha256": "663779fcec8fe59917502844618053adbacd711d9a717f39755d5fc2352aa88f"
+        },
+        "attendance": {
+            "count": 2,
+            "sha256": "3c22c66bea6e232a8ac76853e21fbe87c0e64dbcdd3d3f5b7f1e34fd87c68b4f"
+        },
+        "admins": {
+            "count": 1,
+            "sha256": "383755843a083e1cc9ba45c739e2ac60297d35b854fbe916aad851f80773d489"
+        },
+        "buses": {
+            "count": 1,
+            "sha256": "1c3230e0b740365c0d001a7eae3fd9462da346143d8a6bb774569dd6a5bcd066"
+        },
+        "faculty_access": {
+            "count": 2,
+            "sha256": "925e147a9187aa5e019df2ce15a902dce70519a2a65b98a6130aaf159cc57a0f"
+        },
+        "bus_drop_points": {
+            "count": 3,
+            "sha256": "a7909a23692cc4a4b738fe023ef81ab428f764e4434cfa0bc6aee58ef7174d76"
+        },
+        "login_attempts": {
+            "count": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+    }
+}

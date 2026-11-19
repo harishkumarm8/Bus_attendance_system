@@ -1,0 +1,6 @@
+DirectoryIndex login.php
+Options -Indexes
+<FilesMatch "^(config\.php|README\.md|TESTING\.md)$">
+ Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/bus_attendance/database/
