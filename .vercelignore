@@ -1,11 +1,8 @@
-# Protect sensitive files from being deployed
-config.php
+# Protect sensitive and unnecessary files from deployment
 certs/
 tmp/
 tests/
-database/*.sql
-database/*.json
-database/.htaccess
+database/
 *.md
 .htaccess
 royal-theme-preview.jpg
