@@ -1,5 +1,4 @@
-# Protect sensitive and unnecessary files from deployment
-certs/
+# Do NOT exclude certs/ — TiDB SSL CA cert is required at runtime
 tmp/
 tests/
 database/

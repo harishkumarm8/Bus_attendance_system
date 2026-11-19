@@ -31,6 +31,10 @@ const CLASS_YEAR_IS_SEMESTER = true;
 date_default_timezone_set('Asia/Kolkata');
 ini_set('display_errors', '0');
 ini_set('session.use_strict_mode', '1');
+// Vercel serverless functions use /tmp for writable storage
+if (!is_writable(ini_get('session.save_path') ?: '')) {
+    ini_set('session.save_path', '/tmp');
+}
 session_name('bus_attendance_session');
 session_set_cookie_params(['httponly'=>true,'secure'=>!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off','samesite'=>'Lax','path'=>'/']);
 session_start();
