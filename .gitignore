@@ -1,4 +1,4 @@
-config.php
+# config.php is now safe to commit (uses env vars, no hardcoded secrets)
 tmp/
 royal-theme-preview.jpg
 database/*backup*

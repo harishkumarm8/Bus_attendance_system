@@ -1,0 +1,11 @@
+# Protect sensitive files from being deployed
+config.php
+certs/
+tmp/
+tests/
+database/*.sql
+database/*.json
+database/.htaccess
+*.md
+.htaccess
+royal-theme-preview.jpg
