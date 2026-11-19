@@ -4,443 +4,212 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Campus bus attendance and transport management — Grace College of Engineering">
-  <title>Bus Attendance · Grace College of Engineering</title>
+  <meta name="description" content="Campus bus attendance and transport management">
+  <title>Bus attendance management · Grace College of Engineering</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2365196f'/%3E%3Ctext x='12' y='44' font-size='40' fill='white'%3EB%3C/text%3E%3C/svg%3E">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="css/style.css?v=grace-3" rel="stylesheet">
-
   <style>
-    /* ── Static-page overrides ── */
-    .hero-banner {
-      background: linear-gradient(135deg, #32133e 0%, #65196f 60%, #9b2fa8 100%);
-      color: #fff;
-      padding: 80px 32px 64px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-icon {
-      width: 80px; height: 80px;
-      background: rgba(255,255,255,0.15);
-      border: 2px solid rgba(255,255,255,0.3);
-      border-radius: 20px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 40px; margin-bottom: 24px;
-    }
-    .hero-banner h1 {
-      font-size: 40px; line-height: 48px; font-weight: 700;
-      letter-spacing: -0.03em; margin-bottom: 16px; color: #fff;
-    }
-    .hero-banner p {
-      font-size: 18px; line-height: 28px;
-      color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 36px;
-    }
-    .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .hero-badge {
-      padding: 6px 16px; border-radius: 20px;
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-      font-size: 13px; font-weight: 600; color: #fff;
-      display: inline-flex; align-items: center; gap: 6px;
-    }
-    .section { padding: 64px 24px; }
-    .section-dark { background: #f5f3f6; }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px; max-width: 1100px; margin: 48px auto 0;
-    }
-    .feature-card {
-      background: #fff; border: 1px solid #e7e1e9; border-radius: 16px;
-      padding: 32px; box-shadow: 0 4px 16px #37113f05;
-      transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s;
-    }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px #37113f12; }
-    .feature-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; margin-bottom: 20px;
-    }
-    .feature-card h3 { font-size: 18px; font-weight: 700; color: #35123f; margin-bottom: 10px; }
-    .feature-card p { color: #716778; font-size: 14px; line-height: 22px; margin: 0; }
-    .login-cta-section { padding: 80px 24px; text-align: center; background: #fff; }
-    .login-cta-section h2 { font-size: 32px; font-weight: 700; color: #35123f; margin-bottom: 12px; }
-    .login-cta-section p { color: #716778; font-size: 16px; max-width: 480px; margin: 0 auto 36px; }
-    .cta-cards {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 24px; max-width: 640px; margin: 0 auto;
-    }
-    .cta-card {
-      border: 2px solid #e7e1e9; border-radius: 16px; padding: 32px 24px;
-      text-decoration: none; transition: all 0.3s cubic-bezier(.22,1,.36,1);
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-    }
-    .cta-card:hover { border-color: #65196f; background: #faf8fb; transform: translateY(-3px); }
-    .cta-card-icon {
-      width: 56px; height: 56px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center; font-size: 26px;
-    }
-    .cta-card h3 { font-size: 18px; font-weight: 700; color: #35123f; margin: 0; }
-    .cta-card p { font-size: 13px; color: #716778; margin: 0; }
-    .cta-card .arrow { color: #65196f; font-size: 20px; margin-top: 4px; }
-    .cta-card-admin .cta-card-icon { background: #f0eaf4; color: #65196f; }
-    .cta-card-staff .cta-card-icon { background: #edf5ef; color: #2d6e49; }
-    .stat-row {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 32px; max-width: 800px; margin: 0 auto; text-align: center; padding-top: 48px;
-    }
-    .stat-row-item strong { display: block; font-size: 36px; font-weight: 700; color: #65196f; letter-spacing: -0.04em; }
-    .stat-row-item span { font-size: 14px; color: #716778; }
-    .site-footer {
-      background: #32133e; color: rgba(255,255,255,0.6);
-      padding: 32px 24px; text-align: center; font-size: 13px; line-height: 24px;
-    }
-    .site-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
-    .site-footer a:hover { color: #fff; }
-    @media (max-width: 600px) {
-      .hero-banner h1 { font-size: 28px; line-height: 36px; }
-      .cta-cards { grid-template-columns: 1fr; }
-      .stat-row { grid-template-columns: 1fr; gap: 24px; }
-    }
-
-    /* ── Login portal ── */
-    .login-portal-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .login-portal-card {
-      padding: 36px !important;
-      border-radius: 20px !important;
-    }
-    .role-tabs {
-      display: flex; gap: 8px; margin-bottom: 24px;
-    }
-    .role-tab {
-      flex: 1; padding: 10px 12px; border-radius: 10px;
-      border: 2px solid #e7e1e9; background: #fff;
-      font-size: 13px; font-weight: 600; color: #716778;
-      cursor: pointer; display: flex; align-items: center;
-      justify-content: center; gap: 6px;
-      transition: all 0.2s;
-    }
-    .role-tab.active {
-      border-color: #65196f; background: #65196f; color: #fff;
-    }
-    .role-tab:not(.active):hover { border-color: #c9a8d1; background: #faf8fb; color: #65196f; }
-    .role-banner {
-      display: flex; align-items: center; gap: 14px;
-      background: #f0eaf4; border: 1px solid #ddd3e2;
-      border-radius: 12px; padding: 14px 16px; margin-bottom: 24px;
-    }
-    .role-banner > i { font-size: 24px; color: #65196f; flex-shrink: 0; }
-    .role-banner-staff { background: #edf5ef; border-color: #c5dece; }
-    .role-banner-staff > i { color: #2d6e49; }
-    .role-banner strong { display: block; font-size: 14px; color: #35123f; }
-    .role-banner span { font-size: 12px; color: #716778; }
-    .password-wrap { position: relative; }
-    .password-wrap .form-control { padding-right: 44px; }
+    /* Password show/hide toggle */
+    .pw-wrap { position: relative; }
+    .pw-wrap .form-control { padding-right: 44px; }
     .pw-toggle {
-      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-      background: none; border: none; color: #9b87a3; cursor: pointer;
+      position: absolute; right: 12px; top: 50%;
+      transform: translateY(-50%);
+      background: none; border: none;
+      color: #9b87a3; cursor: pointer;
       font-size: 18px; padding: 0; line-height: 1;
     }
     .pw-toggle:hover { color: #65196f; }
-    .login-note {
-      margin: 16px 0 0; font-size: 12px; color: #9b87a3;
-      display: flex; align-items: flex-start; gap: 6px;
-      border-top: 1px solid #eee8f1; padding-top: 16px;
+    /* Spinner on submit */
+    .btn[aria-busy=true] { opacity: .65; pointer-events: none; }
+    .btn[aria-busy=true] .btn-label { display: none; }
+    .btn[aria-busy=true] .btn-spinner { display: inline-block; }
+    .btn-spinner {
+      display: none;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .6s linear infinite;
+      vertical-align: middle;
     }
-    .login-note i { flex-shrink: 0; margin-top: 2px; }
-    .login-side-info {
-      display: flex; flex-direction: column; gap: 24px;
-      justify-content: center;
-    }
-    .info-item {
-      display: flex; align-items: flex-start; gap: 16px;
-    }
-    .info-icon {
-      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 20px;
-    }
-    .info-item strong { display: block; font-size: 14px; font-weight: 700; color: #35123f; margin-bottom: 4px; }
-    .info-item p { font-size: 13px; color: #716778; margin: 0; line-height: 20px; }
-    @media (max-width: 768px) {
-      .login-portal-wrap { grid-template-columns: 1fr; }
-      .login-side-info { display: none; }
-      .login-portal-card { padding: 24px !important; }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
 
-  <!-- College Header -->
-  <header class="college-header">
-    <div class="college-brand">
-      <svg class="college-logo" viewBox="688 4 532 88" role="img" aria-label="Grace College of Engineering" xmlns="http://www.w3.org/2000/svg">
-        <image href="assets/college-reference.png" width="1912" height="875" />
-      </svg>
-    </div>
-    <div class="header-account">
-      <span class="header-welcome">Bus Attendance System</span>
-      <span class="caption-2">Campus transport management</span>
-    </div>
-  </header>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Hero -->
-  <section class="hero-banner" style="margin-top:112px;">
-    <div class="hero-icon"><i class="bi bi-bus-front-fill"></i></div>
-    <h1>Bus Attendance<br>Management System</h1>
-    <p>Real-time campus transport tracking for Grace College of Engineering — built on TiDB Cloud.</p>
-    <div class="hero-badges">
-      <span class="hero-badge"><i class="bi bi-cloud-check"></i> TiDB Cloud</span>
-      <span class="hero-badge"><i class="bi bi-shield-lock"></i> Secure Login</span>
-      <span class="hero-badge"><i class="bi bi-phone"></i> Mobile Friendly</span>
-      <span class="hero-badge"><i class="bi bi-file-earmark-pdf"></i> PDF Reports</span>
-    </div>
-  </section>
+<!-- College Header -->
+<header class="college-header">
+  <div class="college-brand">
+    <svg class="college-logo" viewBox="688 4 532 88" role="img"
+         aria-label="Grace College of Engineering"
+         xmlns="http://www.w3.org/2000/svg">
+      <image href="assets/college-reference.png" width="1912" height="875"/>
+    </svg>
+  </div>
+  <div class="header-account">
+    <span class="header-welcome">Bus attendance</span>
+    <span class="caption-2">Campus transport management</span>
+  </div>
+</header>
 
-  <!-- Features -->
-  <section class="section section-dark">
-    <div style="text-align:center; max-width:600px; margin:0 auto;">
-      <div class="eyebrow">FEATURES</div>
-      <h2 class="heading-4" style="color:#35123f; margin-bottom:12px;">Everything you need for transport management</h2>
-      <p class="caption-2" style="font-size:16px; line-height:26px;">A complete attendance system designed for college bus management, integrated with the ERP.</p>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#f0eaf4; color:#65196f;"><i class="bi bi-check2-square"></i></div>
-        <h3>Daily Attendance</h3>
-        <p>Mark Present or Absent for each student bus-wise. Quick one-click marking for entire bus groups.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#edf5ef; color:#2d6e49;"><i class="bi bi-people-fill"></i></div>
-        <h3>Student Management</h3>
-        <p>Add, edit, and manage student bus assignments. Filter by bus, department, year, or drop point.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#faf0e8; color:#8a4f1a;"><i class="bi bi-bar-chart-fill"></i></div>
-        <h3>Attendance Reports</h3>
-        <p>Generate and export detailed PDF reports by date, bus, or student. Download with one click.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#fdf0e8; color:#936018;"><i class="bi bi-arrow-repeat"></i></div>
-        <h3>ERP Sync</h3>
-        <p>Synchronize students directly from the college ERP system. Keeps student data always up to date.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#eaf3fc; color:#1a5f8a;"><i class="bi bi-person-gear"></i></div>
-        <h3>Faculty Access Control</h3>
-        <p>Grant or revoke bus-specific access to faculty staff. Each staff member sees only their assigned bus.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#f4eaff; color:#5c1a8a;"><i class="bi bi-geo-alt-fill"></i></div>
-        <h3>Drop Point Tracking</h3>
-        <p>Manage multiple drop points per bus. Track student drop point status (Active / Inactive).</p>
-      </div>
-    </div>
-  </section>
+<!-- Login workspace -->
+<div class="login-workspace">
+  <main id="main">
 
-  <!-- Stats row -->
-  <section style="padding:64px 24px; background:#fff;">
-    <div style="text-align:center; max-width:600px; margin:0 auto;">
-      <div class="eyebrow">BUILT FOR SCALE</div>
-      <h2 class="heading-4" style="color:#35123f;">Trusted campus infrastructure</h2>
+    <div class="page-heading">
+      <div>
+        <div class="eyebrow">GRACE COLLEGE OF ENGINEERING</div>
+        <h1 class="heading-4">Bus attendance management</h1>
+      </div>
+      <span class="caption-2" id="today-date"></span>
     </div>
-    <div class="stat-row">
-      <div class="stat-row-item">
-        <strong>TiDB</strong>
-        <span>Cloud database — Asia-Pacific region</span>
-      </div>
-      <div class="stat-row-item">
-        <strong>SSL</strong>
-        <span>TLS-encrypted all database connections</span>
-      </div>
-      <div class="stat-row-item">
-        <strong>IST</strong>
-        <span>Asia/Kolkata timezone across all records</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- Login Portal -->
-  <section class="login-cta-section section-dark" id="login-section">
-    <div class="eyebrow">SIGN IN</div>
-    <h2>Access Your Dashboard</h2>
-    <p>Enter your credentials to sign in to the bus attendance portal.</p>
+    <!-- Error banner (shown via JS if needed) -->
+    <div id="error-banner" class="alert alert-danger" role="alert" style="display:none;"></div>
 
-    <div class="login-portal-wrap">
-      <!-- Login Card -->
-      <div class="login-portal-card panel">
-        <!-- Role tabs -->
-        <div class="role-tabs">
-          <button class="role-tab active" data-role="admin" onclick="switchRole('admin', this)">
-            <i class="bi bi-shield-fill"></i> Administrator
-          </button>
-          <button class="role-tab" data-role="staff" onclick="switchRole('staff', this)">
-            <i class="bi bi-person-badge-fill"></i> Faculty / Staff
-          </button>
-        </div>
+    <!-- Login grid — identical layout to login.php -->
+    <section class="login-grid">
 
-        <!-- Role badge -->
-        <div class="role-banner" id="role-banner-admin">
-          <i class="bi bi-shield-lock-fill"></i>
+      <!-- Left story panel -->
+      <div class="login-story">
+        <span class="brand-icon">
+          <i class="bi bi-bus-front" aria-hidden="true"></i>
+        </span>
+        <h2 class="heading-3">A clear view of<br>every campus journey.</h2>
+        <p>Manage student transport and keep daily attendance in one place.</p>
+        <div class="story-item">
+          <i class="bi bi-people" aria-hidden="true"></i>
           <div>
-            <strong>Admin Login</strong>
-            <span>Full system access — manage students, buses &amp; reports</span>
+            <strong>One student directory</strong>
+            <p>Synchronize transport students from your campus records.</p>
           </div>
         </div>
-        <div class="role-banner role-banner-staff" id="role-banner-staff" style="display:none;">
-          <i class="bi bi-person-badge-fill"></i>
+        <div class="story-item">
+          <i class="bi bi-calendar-check" aria-hidden="true"></i>
           <div>
-            <strong>Faculty / Staff Login</strong>
-            <span>Mark daily attendance for your assigned bus</span>
+            <strong>Attendance by date</strong>
+            <p>Record, review and update each day with confidence.</p>
           </div>
         </div>
+        <div class="story-item">
+          <i class="bi bi-bar-chart" aria-hidden="true"></i>
+          <div>
+            <strong>Instant PDF reports</strong>
+            <p>Download attendance summaries for any date or bus route.</p>
+          </div>
+        </div>
+      </div>
 
-        <!-- Form -->
-        <form action="login.php" method="POST" id="login-form" autocomplete="on">
-          <input type="hidden" name="csrf" value="">
+      <!-- Right login panel -->
+      <article class="panel login-panel">
+        <div class="eyebrow">WELCOME TO GRACE COLLEGE</div>
+        <h2 class="heading-5">Sign in to your workspace</h2>
+        <p class="caption-2">
+          Staff: enter your faculty ID and leave the password blank.&nbsp;
+          Admin: enter your username and password.
+        </p>
 
-          <div class="mb-3">
-            <label class="form-label" for="username">
-              <i class="bi bi-person field-icon"></i>
-              <span id="username-label">Admin Username</span>
-            </label>
+        <form id="login-form" method="POST" action="login.php" novalidate>
+          <!-- CSRF handled server-side by login.php; static page just posts without it -->
+          <!-- Username -->
+          <label class="form-label" for="username">Username or faculty ID</label>
+          <input
+            class="form-control"
+            id="username"
+            name="username"
+            type="text"
+            maxlength="100"
+            autocomplete="username"
+            placeholder="Admin username or ERP faculty ID"
+            required
+          >
+
+          <!-- Password -->
+          <label class="form-label" for="password">Admin password&nbsp;<span class="caption-2">(staff leave blank)</span></label>
+          <div class="pw-wrap">
             <input
-              type="text"
               class="form-control"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
-              autocomplete="username"
-              required
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Leave blank if you are a faculty member"
             >
+            <button type="button" class="pw-toggle" onclick="togglePw()" aria-label="Toggle password visibility">
+              <i class="bi bi-eye" id="pw-eye"></i>
+            </button>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label" for="password">
-              <i class="bi bi-lock field-icon"></i> Password
-            </label>
-            <div class="password-wrap">
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-              >
-              <button type="button" class="pw-toggle" onclick="togglePw()" aria-label="Show password">
-                <i class="bi bi-eye" id="pw-eye"></i>
-              </button>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary login-submit w-100">
-            <i class="bi bi-box-arrow-in-right"></i>
-            Sign In
+          <!-- Submit -->
+          <button class="btn btn-primary w-100 login-submit" type="submit" id="submit-btn">
+            <span class="btn-label">
+              Sign in &nbsp;<i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </span>
+            <span class="btn-spinner" aria-hidden="true"></span>
           </button>
         </form>
+      </article>
 
-        <p class="login-note">
-          <i class="bi bi-info-circle"></i>
-          Faculty staff use their <strong>ERP Faculty ID</strong> as username.
-        </p>
-      </div>
+    </section>
 
-      <!-- Side info -->
-      <div class="login-side-info">
-        <div class="info-item">
-          <div class="info-icon" style="background:#f0eaf4;color:#65196f;"><i class="bi bi-shield-check"></i></div>
-          <div>
-            <strong>Secure &amp; Encrypted</strong>
-            <p>All connections use TLS. Sessions expire after 30 minutes of inactivity.</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon" style="background:#edf5ef;color:#2d6e49;"><i class="bi bi-cloud-check"></i></div>
-          <div>
-            <strong>Cloud Database</strong>
-            <p>Data stored on TiDB Cloud, Asia-Pacific region with real-time sync.</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon" style="background:#faf0e8;color:#8a4f1a;"><i class="bi bi-clock-history"></i></div>
-          <div>
-            <strong>IST Timezone</strong>
-            <p>All attendance records are timestamped in India Standard Time (UTC+5:30).</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon" style="background:#f4eaff;color:#5c1a8a;"><i class="bi bi-lock-fill"></i></div>
-          <div>
-            <strong>Rate Limited</strong>
-            <p>Accounts are locked for 15 minutes after 10 failed attempts to prevent brute force.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p style="margin:0 0 8px;">
-      <strong style="color:#fff;">Grace College of Engineering</strong> · Bus Attendance Management System
-    </p>
-    <p style="margin:0;">
-      Powered by <a href="https://tidbcloud.com" target="_blank" rel="noopener">TiDB Cloud</a> ·
-      <a href="login.php">Sign in</a>
-    </p>
+  <footer class="page-footer caption-2">
+    Grace College of Engineering · Bus attendance management
   </footer>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-  <script>
-    function switchRole(role, btn) {
-      // Update tab styles
-      document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      // Show/hide banners
-      document.getElementById('role-banner-admin').style.display = role === 'admin' ? 'flex' : 'none';
-      document.getElementById('role-banner-staff').style.display = role === 'staff'  ? 'flex' : 'none';
-      // Update label
-      document.getElementById('username-label').textContent =
-        role === 'admin' ? 'Admin Username' : 'Faculty / Staff ID';
-      document.getElementById('username').placeholder =
-        role === 'admin' ? 'Enter your username' : 'Enter your ERP Faculty ID';
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script>
+  // Show today's date in the header
+  (function () {
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const d = new Date();
+    document.getElementById('today-date').textContent =
+      days[d.getDay()] + ', ' +
+      String(d.getDate()).padStart(2,'0') + ' ' +
+      months[d.getMonth()] + ' ' +
+      d.getFullYear();
+  })();
+
+  // Password show/hide
+  function togglePw() {
+    const inp = document.getElementById('password');
+    const eye = document.getElementById('pw-eye');
+    if (inp.type === 'password') {
+      inp.type = 'text';
+      eye.className = 'bi bi-eye-slash';
+    } else {
+      inp.type = 'password';
+      eye.className = 'bi bi-eye';
+    }
+  }
+
+  // Spinner + validation on submit
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    const username = document.getElementById('username').value.trim();
+    const banner   = document.getElementById('error-banner');
+    banner.style.display = 'none';
+
+    if (!username) {
+      e.preventDefault();
+      banner.textContent = 'Please enter your username or faculty ID.';
+      banner.style.display = 'block';
+      document.getElementById('username').focus();
+      return;
     }
 
-    function togglePw() {
-      const inp = document.getElementById('password');
-      const eye = document.getElementById('pw-eye');
-      if (inp.type === 'password') {
-        inp.type = 'text';
-        eye.className = 'bi bi-eye-slash';
-      } else {
-        inp.type = 'password';
-        eye.className = 'bi bi-eye';
-      }
-    }
-
-    // Smooth scroll to login on CTA clicks (future-proof)
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('login-form');
-      form.addEventListener('submit', () => {
-        form.querySelector('button[type=submit]').setAttribute('aria-busy', 'true');
-      });
-    });
-  </script>
+    // Show spinner
+    const btn = document.getElementById('submit-btn');
+    btn.setAttribute('aria-busy', 'true');
+  });
+</script>
 </body>
 </html>
