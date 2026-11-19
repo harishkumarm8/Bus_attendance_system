@@ -1,17 +1,8 @@
 {
-  "functions": {
-    "*.php": {
-      "runtime": "vercel-php@0.7.1"
-    }
-  },
-  "routes": [
-    { "src": "/", "dest": "/login.php" },
-    { "src": "/admin", "dest": "/admin.php" },
-    { "src": "/staff", "dest": "/staff.php" },
-    { "src": "/(.*\\.php)", "dest": "/$1" },
-    { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "/js/(.*)", "dest": "/js/$1" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/(.*)", "dest": "/login.php" }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/css/(.*)", "destination": "/css/$1" },
+    { "source": "/js/(.*)", "destination": "/js/$1" },
+    { "source": "/assets/(.*)", "destination": "/assets/$1" }
   ]
 }
